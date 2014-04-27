@@ -1,0 +1,2 @@
+blendstudio.magicstore
+======================
