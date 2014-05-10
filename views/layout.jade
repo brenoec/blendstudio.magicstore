@@ -3,15 +3,56 @@ html
   head
     title= title
     
-    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    
     script(type='text/javascript', src='/javascripts/jquery.min.js')
     script(type='text/javascript', src='/javascripts/template.js')
     script(type='text/javascript', src='/javascripts/bootstrap.min.js')
     
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    
+    //script(type='text/javascript', src='/javascripts/bootstrap-theme.min.js')
+    
     block head
     
   body
-  
+    // top bar
+    #top-nav.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-toggle
+          a(href='/'): img.logo(src='/images/logo/logofull.png')
+        .navbar-collapse.collapse
+        //  ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
+                i.glyphicon.glyphicon-user
+                |  Perfil 
+                span.caret
+              ul#g-account-menu.dropdown-menu(role='menu')
+                li
+                  a(href='#') Editar
+            li
+              a(href='/users/register')
+                i.glyphicon.glyphicon-chevron-up
+                |  Registrar 
+            li
+              a(href='/users/login')
+                i.glyphicon.glyphicon-chevron-right
+                |  Entrar 
+            li
+              a(href='/users/logout')
+                i.glyphicon.glyphicon-lock
+                |  Sair 
+                
     block content
+    
+    block foot
+    
+    // bottom bar
+    footer.text-center.text-dark
+      strong &copy; 2014 MagicStore 
+      | - developed by 
+      strong &copy; 2014 BlendStudio
+      br
+      | Magic The Gathering &reg; é marca registrada da Wizards of the Coast &reg;
