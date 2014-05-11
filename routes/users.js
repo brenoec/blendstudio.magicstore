@@ -7,8 +7,8 @@ var Account = require('../models/account.js');
 
 exports.list = function(req, res){
 //    new Account({
-//        email : 'breno.ec@gmail.com',
-//        password : 'bbbb',
+//        email : 'lucastleite@gmail.com',
+//        password : 'llll',
 //        creationDate : new Date,
 //        lastUpdateDate : new Date,
 //        isActive : true
