@@ -11,6 +11,12 @@ var path = require('path');
 
 var app = express();
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/magicstore');
+
+var AccountSchema = require('./models/account.js').AccountSchema;
+var Account = mongoose.model('accounts', AccountSchema);
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));

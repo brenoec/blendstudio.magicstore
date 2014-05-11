@@ -23,28 +23,23 @@ html
             span.icon-toggle
           a(href='/'): img.logo(src='/images/logo/logofull.png')
         .navbar-collapse.collapse
-        //  ul.nav.navbar-nav.navbar-right
-            li.dropdown
-              a.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
-                i.glyphicon.glyphicon-user
-                |  Perfil 
-                span.caret
-              ul#g-account-menu.dropdown-menu(role='menu')
-                li
-                  a(href='#') Editar
-            li
-              a(href='/users/register')
-                i.glyphicon.glyphicon-chevron-up
-                |  Registrar 
-            li
-              a(href='/users/login')
-                i.glyphicon.glyphicon-chevron-right
-                |  Entrar 
-            li
-              a(href='/users/logout')
-                i.glyphicon.glyphicon-lock
-                |  Sair 
-                
+            ul.nav.navbar-nav.navbar-right
+                li.dropdown
+                  a.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
+                    i.glyphicon.glyphicon-user
+                    |  Perfil 
+                    span.caret
+                  ul#g-account-menu.dropdown-menu(role='menu')
+                    li
+                      a(href='/users/register') Registrar
+                        i.glyphicon.glyphicon-chevron-up.pull-right
+                    li
+                      a(href='/users/login') Entrar
+                        i.glyphicon.glyphicon-chevron-right.pull-right
+                    li
+                      a(href='/users/logout') Sair
+                        i.glyphicon.glyphicon-lock.pull-right
+
     block content
     
     block foot
