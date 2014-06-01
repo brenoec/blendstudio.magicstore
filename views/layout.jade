@@ -8,6 +8,7 @@ html(ng-app)
     
     script(type='text/javascript', src='/javascripts/vendor/jquery/jquery.min.js')
     script(type='text/javascript', src='/javascripts/vendor/magicstore/template.js')
+    script(type='text/javascript', src='/javascripts/vendor/magicstore/session.js')
     script(type='text/javascript', src='/javascripts/vendor/bootstrap-javascript/bootstrap.min.js')
     script(type='text/javascript', src='http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js')
     
@@ -25,7 +26,11 @@ html(ng-app)
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
             span.icon-toggle
           a(href='/'): img.logo(src='/images/logo/logofull.png')
-        .navbar-collapse.collapse
+        script(type='text/javascript').
+          if(getSession('email')) {
+            document.write('<div class="navbar-collapse collapse"><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Perfil <span class="caret"></span></a><ul id="g-account-menu" role="menu" class="dropdown-menu"><li><a href="/users/logout">Sair<i class="glyphicon glyphicon-lock pull-right"></i></a></li></ul></li></ul></div>');
+          }
+        //.navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
                 li.dropdown
                   a.dropdown-toggle(role='button', data-toggle='dropdown', href='#')

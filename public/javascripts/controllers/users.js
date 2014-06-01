@@ -1,21 +1,16 @@
 function users($scope) {
     $scope.login = function(account) {
-        $.getJSON( "/users", function( data ) {
-            var success = false;
-
-            // TODO: remove alerts and redirect
+        $.getJSON('/users', function(data) {
             $.each( data, function() {
-                if (this.email == account.email) {
-                    if (this.password == CryptoJS.SHA256(account.password)) {
-                        alert("success: " + this.email);
-                        success = true;
+                if (this.isActive === true) {
+                    if (this.email == account.email) {
+                        if (this.password == CryptoJS.SHA256(account.password)) {
+                            $.post('/session', { 'email' : account.email });
+                            //window.location('/users');
+                        }
                     }
                 }
             });
-            
-            if (!success) {
-                alert("failed");
-            }
         });
     }
     

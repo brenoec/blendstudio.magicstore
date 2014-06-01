@@ -4,8 +4,11 @@
  */
 
 var express = require('express');
+
 var routes = require('./routes');
+var session = require('./routes/session');
 var users = require('./routes/users');
+
 var http = require('http');
 var path = require('path');
 
@@ -27,8 +30,12 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
+app.use(express.cookieParser('bl3nd5tud10'));
 app.use(express.session());
+app.use(function(req,res,next){
+    res.locals.session = req.session;
+    next();
+});
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -39,6 +46,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 
+app.get('/session', session.get);
+app.post('/session', session.set);
+
 app.get('/users', users.list);
 app.get('/users/login', users.login);
 app.get('/users/logout', users.logout);
@@ -47,3 +57,5 @@ app.get('/users/register', users.register);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+
