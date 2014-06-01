@@ -6,16 +6,21 @@
 var Account = require('../models/account.js');
 
 exports.list = function(req, res){
-//    new Account({
-//        email : 'lucastleite@gmail.com',
-//        password : 'llll',
-//        creationDate : new Date,
-//        lastUpdateDate : new Date,
-//        isActive : true
-//    }).save();
+    //new Account({
+    //    email : 'lucastleite@gmail.com',
+    //    password : 'llll',
+    //    creationDate : new Date,
+    //    lastUpdateDate : new Date,
+    //    isActive : true
+    //}).save();
     
+    //var count;
     
-    Account.find(function(err, accounts) {
+    //Account.count({}, function(err, c) {
+    //    count = c.toString();
+    //});
+    
+    Account.find(function(error, accounts) {
         res.send(accounts);
     });
 };

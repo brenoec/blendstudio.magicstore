@@ -12,7 +12,8 @@ var path = require('path');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://lucastleite:Bonita8*@oceanic.mongohq.com:10004/app24606530');
+// mongoose.connect('mongodb://lucastleite:Bonita8*@oceanic.mongohq.com:10004/app24606530');
+mongoose.connect('mongodb://localhost/magicstore');
 
 var AccountSchema = require('./models/account.js').AccountSchema;
 var Account = mongoose.model('accounts', AccountSchema);

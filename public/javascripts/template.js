@@ -7,5 +7,8 @@ $(document).ready(function() {
         // toggle icon
         $(this).find("i").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
     });
-        
+    
+    //var emailValidation = document.getElementById('login-email');
+    //emailValidation.setCustomValidity('An error occurred');
+    
 });

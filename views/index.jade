@@ -1,8 +1,11 @@
 extends layout
 
 block head
+    script(type='text/javascript', src='/javascripts/controllers/users.js')
 
 block content
+    //script(type='text/javascript') alert('$.document.title')
+
     .container
         .content
             .row
@@ -52,19 +55,18 @@ block content
                                 h3 Registrar
                     .tab-content
                         #profile.tab-pane.active
-                            .panel-body.panel-dark
-                                form.form
+                            .panel-body.panel-dark(ng-controller='users')
+                                form.form(name='form')
                                     .form-group
-                                        input.form-control.input-lg(type='text', placeholder='E-mail')
+                                        input.form-control.input-lg(id='login-email' name='email', type='text', placeholder='E-mail', ng-model='account.email', required)
                                     .form-group
-                                        input.form-control.input-lg(type='password', placeholder='Senha')
+                                        input.form-control.input-lg(type='password', placeholder='Senha', ng-model='account.password', required)
                                     br
                                     br
                                     br
                                     .form-group
-                                        button.btn.btn-success.btn-lg.btn-block
+                                        button.btn.btn-success.btn-lg.btn-block(ng-click='login(account)')
                                             strong Entrar
-                                            
                         #messages.tab-pane
                             .panel-body.panel-dark
                                 form.form
