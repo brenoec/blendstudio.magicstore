@@ -1,40 +1,26 @@
 function users($scope) {
     $scope.login = function(account) {
-        
-        alert($.get('/users') | JSON);
-        
-        //if (!account.email.localeCompare('lucas')) {
-        //    account.email = 'breno';
-        //}
-        
-        alert(account.email);
-        alert(account.password);
+        $.getJSON( "/users", function( data ) {
+            var success = false;
 
-        //Account.findOne({ email : account.email, isActive : true }, function(error, acc) {
-            // todo: crypt password
+            // TODO: remove alerts and redirect
+            $.each( data, function() {
+                if (this.email == account.email) {
+                    if (this.password == CryptoJS.SHA256(account.password)) {
+                        alert("success: " + this.email);
+                        success = true;
+                    }
+                }
+            });
             
-        //    if (error) {
-        //        alert('error');
-        //    }
-            
-        //    if (account.password.localeCompare(acc.password)) {
-        //        alert('bad password');
-        //    }
-        //    else {
-        //        alert('else password');
-        //    }
-        //});
-        
-        alert('end');
-        
-        window.location = '/users';
+            if (!success) {
+                alert("failed");
+            }
+        });
     }
     
     $scope.register = function(account) {
         // todo: validate
-        
-        // todo: crypt password
-        
         new Account({
             email : account.email,
             password : account.password,
