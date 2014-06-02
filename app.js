@@ -52,7 +52,7 @@ app.post('/session', session.set);
 app.get('/users', users.list);
 app.get('/users/login', users.login);
 app.get('/users/logout', users.logout);
-app.get('/users/register', users.register);
+app.post('/users/register', users.register);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

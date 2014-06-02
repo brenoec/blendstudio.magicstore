@@ -68,75 +68,17 @@ block content
                                         button.btn.btn-success.btn-lg.btn-block(ng-click='login(account)')
                                             strong Entrar
                         #messages.tab-pane
-                            .panel-body.panel-dark
+                            .panel-body.panel-dark(ng-controller='users')
                                 form.form
                                     .form-group
-                                        input.form-control.input-lg(type='text', placeholder='E-mail')
+                                        input.form-control.input-lg(type='text', placeholder='E-mail', ng-model='account.email', required)
                                     .form-group
-                                        input.form-control.input-lg(type='password', placeholder='Senha')
+                                        input.form-control.input-lg(type='password', placeholder='Senha', ng-model='account.password', required)
                                     .form-group
-                                        input.form-control.input-lg(type='password', placeholder='Confirmar Senha')
+                                        input.form-control.input-lg(type='password', placeholder='Confirmar Senha', ng-model='account.passwordConfirm', required)
                                     .form-group
-                                        button.btn.btn-success.btn-lg.btn-block 
+                                        button.btn.btn-success.btn-lg.btn-block(ng-click='register(account)')
                                             strong Registrar
-
-            //.row
-                //.col-md-1
-                .col-md-5
-                    .panel.panel-default.panel-dark
-                        .panel-heading-dark
-                            .panel-title
-                                //i.glyphicon.glyphicon-chevron-right
-                                h3.text-center Minha Conta
-                        .panel-body
-                            //form.form.form-vertical
-                            form.form
-                                .form-group
-                                    input.form-control.input-lg(type='text', placeholder='E-mail')
-                                .form-group
-                                    input.form-control.input-lg(type='password', placeholder='Senha')
-                                br
-                                br
-                                br
-                                .form-group
-                                    button.btn.btn-success.btn-lg.btn-block
-                                        strong Entrar
-                                    //span.pull-right
-                                      a.nav(href='#') Registrar
-                                    //span
-                                      a.nav(href='#') Ajuda?
-                .col-md-2
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    h1.text-center.text-dark ou
-                .col-md-5
-                    .panel.panel-default.panel-dark
-                        .panel-heading-dark
-                            .panel-title
-                                //i.glyphicon.glyphicon-chevron-right
-                                h3.text-center Registrar
-                        .panel-body
-                            //form.form.form-vertical
-                            form.form
-                                .form-group
-                                    input.form-control.input-lg(type='text', placeholder='E-mail')
-                                .form-group
-                                    input.form-control.input-lg(type='password', placeholder='Senha')
-                                .form-group
-                                    input.form-control.input-lg(type='password', placeholder='Confirmar Senha')
-                                .form-group
-                                    button.btn.btn-success.btn-lg.btn-block 
-                                        strong Registrar
-                                    //span.pull-right
-                                      a.nav(href='#') Registrar
-                                    //span
-                                      a.nav(href='#') Ajuda?
-                //.col-md-1
                 
 block foot
     

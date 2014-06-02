@@ -6,7 +6,7 @@ function users($scope) {
                     if (this.email == account.email) {
                         if (this.password == CryptoJS.SHA256(account.password)) {
                             $.post('/session', { 'email' : account.email });
-                            //window.location('/users');
+                            window.location.assign('/users/login');
                         }
                     }
                 }
@@ -15,13 +15,6 @@ function users($scope) {
     }
     
     $scope.register = function(account) {
-        // todo: validate
-        new Account({
-            email : account.email,
-            password : account.password,
-            creationDate : new Date,
-            lastUpdateDate : new Date,
-            isActive : true
-        }).save();
+        $.post('/users/register', { 'email' : account.email, 'password' : CryptoJS.SHA256(account.password).toString() });
     }
 }

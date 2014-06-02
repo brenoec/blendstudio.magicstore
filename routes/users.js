@@ -1,4 +1,3 @@
-
 /*
  * GET users listing.
  */
@@ -6,16 +5,6 @@
 var Account = require('../models/account.js');
 
 exports.list = function(req, res){
-    /*/
-    new Account({
-        email : 'lucastleite@gmail.com',
-        password : 'llll',
-        creationDate : new Date,
-        lastUpdateDate : new Date,
-        isActive : true
-    }).save();
-    /*/
-    
     //var count;
     
     //Account.count({}, function(err, c) {
@@ -28,13 +17,24 @@ exports.list = function(req, res){
 };
 
 exports.login = function(req, res){
-  res.render('users/login', { title: 'MagicStore' });
+    res.render('users/login', { title: 'MagicStore' });
 };
 
 exports.logout = function(req, res){
-  res.render('users/logout', { title: 'MagicStore' });
+    res.render('users/logout', { title: 'MagicStore' });
 };
 
 exports.register = function(req, res){
-  res.render('users/register', { title: 'MagicStore' });
+    // Account //
+    new Account({
+        username : 'Usuário Anônimo',
+        email : req.body.email,
+        password : req.body.password,
+        creationDate : new Date,
+        lastUpdateDate : new Date,
+        isActive : true
+    }).save();
+    // End Account /*/
+    
+    res.render('users/register', { title: 'MagicStore' });
 };
